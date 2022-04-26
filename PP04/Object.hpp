@@ -20,7 +20,7 @@ public:
 	}
 	void MoveFastObject()
 	{
-		x -= 2;
+		x--;
 	}
 	void ResetObject()
 	{

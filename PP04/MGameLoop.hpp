@@ -18,8 +18,8 @@ namespace MuSeoun_Engine
         chrono::duration<double> renderDuration;
         Player p;
         Object obj;
-        string p1 = "P";
-        string n = "n";
+        string p1 = "('_')";
+        string n = "<-";
         string g = "";
 
     public:
@@ -87,7 +87,14 @@ namespace MuSeoun_Engine
             {
                 p1 = "";
                 n = "";
-                g = "GameOver";
+                g = "GameOver - Press down button";
+            }
+
+            if (GetAsyncKeyState(VK_DOWN) & 0x8000 || GetAsyncKeyState(VK_DOWN) & 0x8001)
+            {
+                g = "";
+                p1 = "('_')";
+                n = "<-";
             }
         }
         void Update()
@@ -96,7 +103,7 @@ namespace MuSeoun_Engine
         }
         void Render()
         {
-
+            
             cRenderer.Clear();
             cRenderer.MoveCursor(p.x, p.y);
             cRenderer.DrawString(p1);
