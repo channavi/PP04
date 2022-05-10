@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#pragma comment(lib,"OpenGL32")
+
 static void error_callback(int error, const char* description)
 {
     fputs(description, stderr);
@@ -26,16 +28,40 @@ int main(void)
     glfwMakeContextCurrent(window);
     glfwSetKeyCallback(window, key_callback);
 
+    float ratio;
+    int width, height;
+    glfwGetFramebufferSize(window, &width, &height);
+    ratio = width / (float)height;
+    
     while (!glfwWindowShouldClose(window))
     {
-        float ratio;
-        int width, height;
-        glfwGetFramebufferSize(window, &width, &height);
-        ratio = width / (float)height;
+        glClearColor(1.0f,1.0f,1.0f,1);
+        glClear(GL_COLOR_BUFFER_BIT);
+        
+        glPointSize(10);
+        glBegin(GL_TRIANGLES);
 
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex2f(0.0f, 0.0f);
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex2f(0.0f, 0.5f);
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex2f(-0.5f, 0.0f);
 
-        //glClearColor(0, 0, 1, 1);
-        //glClear(GL_COLOR_BUFFER_BIT);
+        glEnd();
+
+        glPointSize(10);
+        glBegin(GL_TRIANGLES);
+
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex2f(-0.5f, 0.5f);
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex2f(-0.5f, 0.0f);
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex2f(0.0f, 0.5f);
+
+        glEnd();
+
 
         glfwSwapBuffers(window);
         glfwPollEvents();
