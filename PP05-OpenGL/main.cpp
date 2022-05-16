@@ -20,11 +20,14 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 int main(void)
 {
     GLFWwindow* window;
+    float PxPoint = -0.5f;
+    float PxPoint2 = -0.6f;
     float yPoint = 0.0f;
     float yPoint2 = 0.1f;
-    float xPoint = 0.5f;
-    float xPoint2 = 0.6f;
-    float xPoint3 = 0.55f;
+    float ExPoint = 0.5f;
+    float ExPoint2 = 0.6f;
+    float ExPoint3 = 0.55f;
+    bool End = false;
     glfwSetErrorCallback(error_callback);
     if (!glfwInit())
         exit(EXIT_FAILURE);
@@ -61,50 +64,72 @@ int main(void)
         glBegin(GL_TRIANGLES);
 
         glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex2f(-0.5f, yPoint);
+        glVertex2f(PxPoint, yPoint);
         glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex2f(-0.5f, yPoint2);
+        glVertex2f(PxPoint, yPoint2);
         glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex2f(-0.6f, yPoint);
+        glVertex2f(PxPoint2, yPoint);
 
         glEnd();
 
-        glPointSize(5);
+        glPointSize(10);
         glBegin(GL_TRIANGLES);
 
         glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex2f(-0.6f, yPoint2);
+        glVertex2f(PxPoint2, yPoint2);
         glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex2f(-0.6f, yPoint);
+        glVertex2f(PxPoint2, yPoint);
         glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex2f(-0.5f, yPoint2);
+        glVertex2f(PxPoint, yPoint2);
 
         glEnd();
 
-        glPointSize(5);
+        glPointSize(10);
         glBegin(GL_TRIANGLES);
 
         glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex2f(xPoint, 0.0f);
+        glVertex2f(ExPoint, 0.0f);
         glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex2f(xPoint2, 0.0f);
+        glVertex2f(ExPoint2, 0.0f);
         glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex2f(xPoint3, 0.1f);
+        glVertex2f(ExPoint3, 0.1f);
 
         glEnd();
 
-        if (xPoint < -0.8f)
-            xPoint = 0.5f;
+        if (ExPoint < -0.8f)
+        {
+            ExPoint = 0.5f;
+        }
         else
-            xPoint = xPoint - 0.0003f;
-        if (xPoint2 < -0.7f)
-            xPoint2 = 0.6f;
+        {
+            if(End == false)
+            ExPoint = ExPoint - 0.0003f;
+        }
+
+        if (ExPoint2 < -0.7f)
+        {
+            ExPoint2 = 0.6f;
+        }
         else
-            xPoint2 = xPoint2 - 0.0003f;
-        if (xPoint3 < -0.75f)
-            xPoint3 = 0.55f;
+        {
+            if (End == false)
+            ExPoint2 = ExPoint2 - 0.0003f;
+        }
+        if (ExPoint3 < -0.75f)
+        {
+            ExPoint3 = 0.55f;
+        }
         else
-            xPoint3 = xPoint3 - 0.0003f;
+        {
+            if (End == false)
+            ExPoint3 = ExPoint3 - 0.0003f;
+        }
+
+        if (ExPoint == PxPoint)
+        {
+            End = true;
+        }
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
