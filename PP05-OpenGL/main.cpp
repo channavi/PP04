@@ -1,4 +1,3 @@
-#pragma once
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -103,7 +102,7 @@ int main(void)
         else
         {
             if(End == false)
-            ExPoint = ExPoint - 0.0003f;
+            ExPoint = ExPoint - 0.01f;
         }
 
         if (ExPoint2 < -0.7f)
@@ -113,7 +112,7 @@ int main(void)
         else
         {
             if (End == false)
-            ExPoint2 = ExPoint2 - 0.0003f;
+            ExPoint2 = ExPoint2 - 0.01f;
         }
         if (ExPoint3 < -0.75f)
         {
@@ -122,7 +121,7 @@ int main(void)
         else
         {
             if (End == false)
-            ExPoint3 = ExPoint3 - 0.0003f;
+            ExPoint3 = ExPoint3 - 0.01f;
         }
 
         if (ExPoint == PxPoint)
