@@ -119,10 +119,25 @@ int main(void)
         glVertex2f(-0.4f, -0.1f);
         glEnd();
 
-        if (xPoint > -0.6f && xPoint2 < -0.4f && yPoint > -0.1f && yPoint2 < 0.1f)
+        if (xPoint > -0.6f && xPoint < -0.4f && yPoint < 0.1f && yPoint > -0.1f)
         {
             std::cout << "面倒";
         }
+        if (xPoint > -0.6f && xPoint < -0.4f && yPoint2 < 0.1f && yPoint2 > -0.1f)
+        {
+            std::cout << "面倒";
+        }
+        if (xPoint2 > -0.6f && xPoint2 < -0.4f && yPoint < 0.1f && yPoint > -0.1f)
+        {
+            std::cout << "面倒";
+        }
+        if (xPoint2 > -0.6f && xPoint2 < -0.4f && yPoint2 < 0.1f && yPoint2 > -0.1f)
+        {
+            std::cout << "面倒";
+        }
+        
+        
+        
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
