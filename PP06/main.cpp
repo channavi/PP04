@@ -121,19 +121,19 @@ int main(void)
 
         if (xPoint > -0.6f && xPoint < -0.4f && yPoint < 0.1f && yPoint > -0.1f)
         {
-            std::cout << "충돌";
+            std::cout << "충돌1";
         }
         if (xPoint > -0.6f && xPoint < -0.4f && yPoint2 < 0.1f && yPoint2 > -0.1f)
         {
-            std::cout << "충돌";
+            std::cout << "충돌2";
         }
         if (xPoint2 > -0.6f && xPoint2 < -0.4f && yPoint < 0.1f && yPoint > -0.1f)
         {
-            std::cout << "충돌";
+            std::cout << "충돌3";
         }
         if (xPoint2 > -0.6f && xPoint2 < -0.4f && yPoint2 < 0.1f && yPoint2 > -0.1f)
         {
-            std::cout << "충돌";
+            std::cout << "충돌4";
         }
         
         
@@ -146,3 +146,4 @@ int main(void)
     glfwTerminate();
     exit(EXIT_SUCCESS);
 }
+// 다이어그램 최대한 심플하게 , 사이클이 생기지 않게
